@@ -5,8 +5,8 @@ import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
-import SecurityProtection from "@/components/security-protection"
-import AntiCopyProtection from "@/components/anti-copy-protection"
+// import SecurityProtection from "@/components/security-protection"
+// import AntiCopyProtection from "@/components/anti-copy-protection"
 
 export const metadata: Metadata = {
   title: "Nexa Dev - Sites Profissionais e ChatBots Inteligentes",
@@ -29,8 +29,8 @@ export default function RootLayout({
     <html lang="pt-BR" className="dark">
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} gradient-bg min-h-screen`}>
         <Suspense fallback={null}>{children}</Suspense>
-        <SecurityProtection />
-        <AntiCopyProtection />
+        {/* <SecurityProtection />
+        <AntiCopyProtection /> */}
         <Analytics />
       </body>
     </html>
