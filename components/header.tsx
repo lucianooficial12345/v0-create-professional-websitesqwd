@@ -35,12 +35,6 @@ export function Header() {
             <Link href="/chatbots" className="text-foreground hover:text-primary transition-colors">
               Chatbots
             </Link>
-            <Link href="#servicos" className="text-foreground hover:text-primary transition-colors">
-              Serviços
-            </Link>
-            <Link href="#precos" className="text-foreground hover:text-primary transition-colors">
-              Preços
-            </Link>
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
@@ -67,12 +61,6 @@ export function Header() {
               </Link>
               <Link href="/chatbots" className="text-foreground hover:text-primary transition-colors">
                 Chatbots
-              </Link>
-              <Link href="#servicos" className="text-foreground hover:text-primary transition-colors">
-                Serviços
-              </Link>
-              <Link href="#precos" className="text-foreground hover:text-primary transition-colors">
-                Preços
               </Link>
               <div className="pt-4">
                 <Button onClick={handleWhatsAppClick} className="w-full bg-green-600 hover:bg-green-700 text-white">

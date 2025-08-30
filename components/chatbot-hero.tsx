@@ -1,7 +1,15 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Bot, Sparkles } from "lucide-react"
 
 export function ChatbotHero() {
+  const whatsappNumber = "5598981502071"
+
+  const handleWhatsAppClick = (message: string) => {
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank")
+  }
+
   return (
     <section className="pt-32 pb-20 px-4">
       <div className="container mx-auto text-center">
@@ -23,16 +31,25 @@ export function ChatbotHero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-4">
-              Criar Meu ChatBot Grátis
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-lg px-8 py-4"
+              onClick={() =>
+                handleWhatsAppClick("Olá! Gostaria de solicitar uma demonstração do ChatBot para WhatsApp da Nexa Dev")
+              }
+            >
+              Solicitar Demonstração
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground text-lg px-8 py-4 bg-transparent"
+              onClick={() =>
+                handleWhatsAppClick("Olá! Gostaria de falar com um especialista sobre ChatBots para WhatsApp")
+              }
             >
-              Ver Como Funciona
+              Falar com Especialista
             </Button>
           </div>
 
