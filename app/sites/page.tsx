@@ -1,3 +1,5 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -42,6 +44,12 @@ const technologies = [
 ]
 
 export default function SitesPage() {
+  const whatsappNumber = "5598981502071"
+
+  const handleWhatsAppClick = (message: string) => {
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank")
+  }
+
   return (
     <main className="min-h-screen">
       <Header />
@@ -57,7 +65,13 @@ export default function SitesPage() {
               Criamos sites profissionais, modernos e otimizados para resultados. Do design à implementação, cuidamos de
               tudo para seu negócio brilhar online.
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-4">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-lg px-8 py-4"
+              onClick={() =>
+                handleWhatsAppClick("Olá! Gostaria de solicitar um orçamento gratuito para criação de site.")
+              }
+            >
               Solicitar Orçamento Gratuito
             </Button>
           </div>
@@ -95,7 +109,11 @@ export default function SitesPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button className="w-full mt-6 bg-transparent" variant="outline">
+                  <Button
+                    className="w-full mt-6 bg-transparent"
+                    variant="outline"
+                    onClick={() => handleWhatsAppClick(`Olá! Gostaria de saber mais sobre ${type.title}.`)}
+                  >
                     Saiba Mais
                   </Button>
                 </CardContent>

@@ -1,8 +1,16 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Bot, Zap, Users } from "lucide-react"
 import Link from "next/link"
 
 export function HeroSection() {
+  const whatsappNumber = "5598981502071"
+
+  const handleWhatsAppClick = (message: string) => {
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank")
+  }
+
   return (
     <section className="pt-32 pb-20 px-4">
       <div className="container mx-auto text-center">
@@ -18,7 +26,13 @@ export function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-4">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-lg px-8 py-4"
+              onClick={() =>
+                handleWhatsAppClick("Olá! Gostaria de solicitar um orçamento para criação de site e/ou chatbot.")
+              }
+            >
               Solicitar Orçamento
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>

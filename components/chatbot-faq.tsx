@@ -1,7 +1,6 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-
 import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { ChevronDown, ChevronUp } from "lucide-react"
@@ -51,6 +50,11 @@ const faqs = [
 
 export function ChatbotFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const whatsappNumber = "5598981502071"
+
+  const handleWhatsAppClick = (message: string) => {
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank")
+  }
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
@@ -101,10 +105,24 @@ export function ChatbotFAQ() {
               Nossa equipe de especialistas está pronta para ajudar você a escolher a melhor solução para seu negócio.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-primary hover:bg-primary/90">Falar com Especialista</Button>
+              <Button
+                className="bg-primary hover:bg-primary/90"
+                onClick={() =>
+                  handleWhatsAppClick(
+                    "Olá! Tenho algumas dúvidas sobre os chatbots e gostaria de falar com um especialista.",
+                  )
+                }
+              >
+                Falar com Especialista
+              </Button>
               <Button
                 variant="outline"
                 className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground bg-transparent"
+                onClick={() =>
+                  handleWhatsAppClick(
+                    "Olá! Gostaria de agendar uma demonstração dos chatbots para entender melhor como funciona.",
+                  )
+                }
               >
                 Agendar Demonstração
               </Button>

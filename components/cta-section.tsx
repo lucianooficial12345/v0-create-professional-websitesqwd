@@ -1,7 +1,15 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight, MessageCircle } from "lucide-react"
 
 export function CTASection() {
+  const whatsappNumber = "5598981502071"
+
+  const handleWhatsAppClick = (message: string) => {
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank")
+  }
+
   return (
     <section className="py-20 px-4">
       <div className="container mx-auto">
@@ -18,7 +26,11 @@ export function CTASection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-4">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-lg px-8 py-4"
+                onClick={() => handleWhatsAppClick("Olá! Gostaria de começar o teste grátis de 14 dias do chatbot.")}
+              >
                 Teste Grátis por 14 Dias
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -26,6 +38,7 @@ export function CTASection() {
                 size="lg"
                 variant="outline"
                 className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground text-lg px-8 py-4 bg-transparent"
+                onClick={() => handleWhatsAppClick("Olá! Gostaria de agendar uma demonstração dos chatbots.")}
               >
                 Agendar Demonstração
               </Button>

@@ -1,3 +1,5 @@
+"use client"
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, Star, Zap } from "lucide-react"
@@ -59,6 +61,12 @@ const plans = [
 ]
 
 export function ChatbotPlans() {
+  const whatsappNumber = "5598981502071"
+
+  const handleWhatsAppClick = (message: string) => {
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank")
+  }
+
   return (
     <section className="py-20 px-4">
       <div className="container mx-auto">
@@ -120,6 +128,9 @@ export function ChatbotPlans() {
                         : "bg-accent hover:bg-accent/90 text-accent-foreground"
                   }`}
                   size="lg"
+                  onClick={() =>
+                    handleWhatsAppClick(`Olá! Gostaria de começar o teste grátis do plano ${plan.name} de chatbot.`)
+                  }
                 >
                   Começar Teste Grátis
                 </Button>
@@ -139,6 +150,11 @@ export function ChatbotPlans() {
             <Button
               variant="outline"
               className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground bg-transparent"
+              onClick={() =>
+                handleWhatsAppClick(
+                  "Olá! Gostaria de falar com um especialista para escolher o melhor plano de chatbot.",
+                )
+              }
             >
               Falar com Especialista
             </Button>
